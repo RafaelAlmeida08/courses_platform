@@ -1,6 +1,7 @@
 import { server } from './config/server';
-
+import 'reflect-metadata';
 import { routes } from './routes';
+import './database';
 
 server.use('/', routes)
 
