@@ -1,9 +1,7 @@
-import express from 'express'
+import { server } from './config/server';
 
-const app = express();
+import { routes } from './routes';
 
-app.use('/teste', (request, response) => {
-    return response.send({status: 'Ok'})
-});
+server.use('/', routes)
 
-app.listen(3000, () => console.log('Server is running on port 3000'));
+server.listen(3000, () => console.log('Server is running on port 3000'));
