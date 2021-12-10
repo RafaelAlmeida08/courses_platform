@@ -14,7 +14,7 @@ export class Subject {
     @Column()
     description: string;
     
-    @OneToMany( type => Professor, subject => Subject )
+    @OneToMany( () => Professor, (professor: Professor) => professor.subject)
     professors: Professor[];
     
     @CreateDateColumn({type: 'timestamp'})

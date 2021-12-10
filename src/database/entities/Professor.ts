@@ -11,7 +11,7 @@ export class Professor {
     @Column()
     name: string;
         
-    @ManyToOne(type => Subject, professors => Professor, {eager: true})
+    @ManyToOne( () =>  Subject, ( subject : Subject ) => subject.professors)
     @JoinColumn({name: 'subject'})
     subject: Subject
 
