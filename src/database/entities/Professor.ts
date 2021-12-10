@@ -12,7 +12,7 @@ export class Professor {
     name: string;
         
     @ManyToOne(type => Subject, professors => Professor)
-    @JoinColumn()
+    @JoinColumn({name: 'subject'})
     subject: Subject
 
     @CreateDateColumn({type: 'timestamp'})

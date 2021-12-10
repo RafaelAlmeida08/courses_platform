@@ -1,7 +1,26 @@
-import { EntityRepository, Repository } from 'typeorm';
-import { Professor } from '../../database/entities/Professor';
+import { getCustomRepository } from "typeorm"
+import { Subject } from "../../database/entities/Subject";
+import { ProfessorRepository } from "../../database/repositories/ProfessorRepository"
 
-@EntityRepository(Professor)
-class ProfessorRepository extends Repository<Professor> {}
+interface ICreateProfessor {
+    name: string,
+    subject: Subject,
+}
 
-export { ProfessorRepository }
+class CreateProfessorService {
+
+    async execute({name, subject} : ICreateProfessor) {
+
+        const repository = getCustomRepository(ProfessorRepository);
+
+        const professor = repository.create({name, subject});
+
+        await repository.save(professor)
+
+        return professor;
+
+    }
+
+}
+
+export { CreateProfessorService }
