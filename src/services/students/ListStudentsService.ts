@@ -6,7 +6,9 @@ class ListStudentsService {
     async execute() {
         const repository = getCustomRepository(StudentRepository);
 
-        const list = await repository.find();
+        const list = await repository.find({
+            relations: ['subject']
+        });
 
         return list;
 

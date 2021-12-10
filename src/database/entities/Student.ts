@@ -10,12 +10,9 @@ export class Student {
 
     @Column()
     name: string;
-
+ 
     @Column()
     email: string;
-
-    @Column({type: 'timestamp'})
-    birthDate: Timestamp;
 
     @CreateDateColumn({type: 'timestamp'})
     created_at: Timestamp;
