@@ -1,7 +1,6 @@
 import { getCustomRepository } from "typeorm"
 import { ProfessorRepository } from "../../database/repositories/ProfessorRepository"
 
-
 class ListProfessorsService {
 
     async execute() {
@@ -12,7 +11,7 @@ class ListProfessorsService {
         });
 
         return list;
-    }
+    } 
 
 }
 

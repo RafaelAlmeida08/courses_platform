@@ -1,13 +1,13 @@
 import { Router } from 'express';
-
-import { coursesRoutes } from './courses';
 import { professorsRoutes } from './professors';
+import { studentsRoutes } from './students';
 import { subjectsRoutes } from './subjects';
 
 const routes = Router();
 
-routes.use('/courses', coursesRoutes);
+
 routes.use('/professors', professorsRoutes);
 routes.use('/subjects', subjectsRoutes);
+routes.use('/students', studentsRoutes)
 
 export { routes }
