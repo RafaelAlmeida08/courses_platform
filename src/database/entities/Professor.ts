@@ -10,6 +10,9 @@ export class Professor {
 
     @Column()
     name: string;
+
+    @Column()
+    email: string;
         
     @ManyToOne( () =>  Subject, ( subject : Subject ) => subject.professors)
     @JoinColumn({name: 'subject'})

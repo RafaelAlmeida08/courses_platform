@@ -4,16 +4,17 @@ import { ProfessorRepository } from "../../database/repositories/ProfessorReposi
 
 interface ICreateProfessor {
     name: string,
+    email: string,
     subject: Subject,
 }
 
 class CreateProfessorService {
 
-    async execute({name, subject} : ICreateProfessor) {
+    async execute({name, email, subject} : ICreateProfessor) {
 
         const repository = getCustomRepository(ProfessorRepository);
 
-        const professor = repository.create({name, subject});
+        const professor = repository.create({name, email, subject});
 
         await repository.save(professor)
 

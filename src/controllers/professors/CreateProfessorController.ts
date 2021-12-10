@@ -5,11 +5,11 @@ import { CreateProfessorService } from "../../services/professors/CreateProfesso
 class CreateProfessorController {
     async handle(request: Request, response: Response) {
 
-        const { name, subject } = request.body;
+        const { name, email, subject } = request.body;
 
         const service = new CreateProfessorService();
 
-        const professor = await service.execute({name, subject});
+        const professor = await service.execute({name, email, subject});
 
         return response.status(201).json(professor);       
 
