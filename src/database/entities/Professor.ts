@@ -1,5 +1,6 @@
-import {Column, CreateDateColumn, Entity, PrimaryColumn, Timestamp, UpdateDateColumn} from 'typeorm';
+import {Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn, Timestamp, UpdateDateColumn} from 'typeorm';
 import { v4 as uuid} from 'uuid';
+import { Subject } from './Subject';
 
 @Entity('professors')
 export class Professor {
@@ -9,9 +10,10 @@ export class Professor {
 
     @Column()
     name: string;
-
-    @Column()
-    subject: string;
+        
+    @ManyToOne(type => Subject, professors => Professor)
+    @JoinColumn()
+    subject: Subject
 
     @CreateDateColumn({type: 'timestamp'})
     created_at: Timestamp;
