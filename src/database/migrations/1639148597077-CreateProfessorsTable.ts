@@ -9,7 +9,9 @@ export class CreateProfessorsTable1639148597077 implements MigrationInterface {
                 columns: [
                     {name: 'id', type: 'varchar', isPrimary: true},
                     {name: 'name', type: 'varchar', length:'80', isUnique: false, isNullable: false},
-                    {name: 'subject', type: 'varchar', isNullable: false}
+                    {name: 'subject', type: 'varchar', isNullable: false},
+                    {name: 'created_at', type: 'timestamp', default: 'now()'},
+                    {name: 'updated_at', type: 'timestamp', default: 'now()'}
                 ]
             })
         );
