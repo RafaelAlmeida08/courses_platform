@@ -1,6 +1,6 @@
 import { getCustomRepository } from "typeorm"
 import { Subject } from "../../database/entities/Subject";
-import { ProfessorRepository } from "../../database/repositories/ProfessorsRepository";
+import { ProfessorsRepository } from "../../database/repositories/ProfessorsRepository";
 
 interface ICreateProfessor {
     name: string,
@@ -12,7 +12,7 @@ class CreateProfessorService {
 
     async execute({name, email, subject} : ICreateProfessor) {
 
-        const repository = getCustomRepository(ProfessorRepository);
+        const repository = getCustomRepository(ProfessorsRepository);
 
         const professor = repository.create({name, email, subject});
 

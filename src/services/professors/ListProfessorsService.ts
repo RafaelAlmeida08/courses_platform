@@ -1,10 +1,10 @@
 import { getCustomRepository } from "typeorm"
-import { ProfessorRepository } from "../../database/repositories/ProfessorsRepository"
+import { ProfessorsRepository } from "../../database/repositories/ProfessorsRepository"
 
 class ListProfessorsService {
 
     async execute() {
-        const repository = getCustomRepository(ProfessorRepository);
+        const repository = getCustomRepository(ProfessorsRepository);
 
         const list = await repository.find({
             relations: ['subject']

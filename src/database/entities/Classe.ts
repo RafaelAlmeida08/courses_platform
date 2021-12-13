@@ -1,4 +1,4 @@
-import {Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryColumn, Timestamp, UpdateDateColumn} from 'typeorm';
+import {Column, CreateDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryColumn, Timestamp, UpdateDateColumn} from 'typeorm';
 import { v4 as uuid} from 'uuid';
 import { Professor } from './Professor';
 import { Student } from './Student';
@@ -11,7 +11,7 @@ export class Classe {
     id: string;
     
     @Column({type: 'timestamp'})
-    date: Timestamp;
+    when: Timestamp;
 
     @OneToOne( () => Professor)
     @JoinColumn({name: 'professor'})
@@ -19,7 +19,11 @@ export class Classe {
 
     @OneToOne( () => Subject )
     @JoinColumn({name: 'subject'})
-    subject: Subject
+    subject: Subject     
+
+    @ManyToMany( () => Student,  student => student.classes)
+    @JoinTable({name: 'students_classes_classes'})
+    students: Student[];
 
     @CreateDateColumn({type: 'timestamp'})
     created_at: Timestamp;

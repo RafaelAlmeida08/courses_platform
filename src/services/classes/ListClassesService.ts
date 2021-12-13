@@ -1,4 +1,4 @@
-import { getCustomRepository, Timestamp } from "typeorm";
+import { getCustomRepository } from "typeorm";
 import { ClassesRepository } from "../../database/repositories/ClassesRepository";
 
 
@@ -8,7 +8,9 @@ class ListClassesService {
 
         const repository = getCustomRepository(ClassesRepository);
 
-        const list = repository.find();
+        const list = repository.find({
+            relations: ['professor', 'subject', 'students']
+        }); 
 
         return list;
 
