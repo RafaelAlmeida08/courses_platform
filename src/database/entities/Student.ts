@@ -14,6 +14,7 @@ export class Student {
  
     @Column()
     email: string;
+        
 
     @CreateDateColumn({type: 'timestamp'})
     created_at: Timestamp;

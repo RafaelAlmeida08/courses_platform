@@ -2,28 +2,33 @@ import { getCustomRepository } from "typeorm"
 import { Subject } from "../../database/entities/Subject";
 import { Professor } from "../../database/entities/Professor";
 import { ClassesRepository } from "../../database/repositories/ClassesRepository"
+import { Student } from "../../database/entities/Student";
 
 interface ICreateClasse{
     when: string,
     professor: Professor,
-    subject: Subject
+    subject: Subject,
+    students: Student[]
 }
 
 class CreateClasseService {
-    async execute({when, professor, subject} : ICreateClasse) {
+    async execute({when, professor, subject, students} : ICreateClasse) {
 
-        console.log(when, professor, subject);
+        // console.log(when, professor, subject, students);
 
         const repository = getCustomRepository(ClassesRepository);
 
         const classe = repository.create({when, professor, subject});
 
-        await repository.save(classe);
+        const newClasse = await repository.save(classe);
 
-        return classe;
+
+        console.log(newClasse);
+
+        // return classe;
 
     }
 
 }
 
-export { CreateClasseService }
+export { CreateClasseService };

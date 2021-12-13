@@ -1,5 +1,6 @@
 import {Column, CreateDateColumn, Entity, OneToMany, PrimaryColumn, Timestamp, UpdateDateColumn} from 'typeorm';
 import { v4 as uuid} from 'uuid';
+import { Classe } from './Classe';
 import { Professor } from './Professor';
 import { Student } from './Student';
 
@@ -20,6 +21,9 @@ export class Subject {
 
     @OneToMany( () => Student, (student: Student) => student.subject )
     students: Student[];
+
+    @OneToMany( () => Classe, classe => classe.subject )
+    classes: Classe[]
     
     @CreateDateColumn({type: 'timestamp'})
     created_at: Timestamp;

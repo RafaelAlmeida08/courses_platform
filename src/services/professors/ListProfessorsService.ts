@@ -7,7 +7,7 @@ class ListProfessorsService {
         const repository = getCustomRepository(ProfessorsRepository);
 
         const list = await repository.find({
-            relations: ['subject']
+            relations: ['subject', 'classes']
         });
 
         return list;

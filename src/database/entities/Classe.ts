@@ -13,11 +13,11 @@ export class Classe {
     @Column({type: 'timestamp'})
     when: Timestamp;
 
-    @OneToOne( () => Professor)
+    @ManyToOne( () => Professor)
     @JoinColumn({name: 'professor'})
     professor: Professor   
 
-    @OneToOne( () => Subject )
+    @ManyToOne( () => Subject )
     @JoinColumn({name: 'subject'})
     subject: Subject     
 
