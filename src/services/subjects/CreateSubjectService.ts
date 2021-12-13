@@ -1,5 +1,5 @@
 import { getCustomRepository } from "typeorm"
-import { SubjectRepository } from "../../database/repositories/SubjectRepository"
+import { SubjectRepository } from "../../database/repositories/SubjectsRepository"
 
 interface ICreateSubject {
     name: string, 

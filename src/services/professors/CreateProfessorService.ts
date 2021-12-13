@@ -1,6 +1,6 @@
 import { getCustomRepository } from "typeorm"
 import { Subject } from "../../database/entities/Subject";
-import { ProfessorRepository } from "../../database/repositories/ProfessorRepository";
+import { ProfessorRepository } from "../../database/repositories/ProfessorsRepository";
 
 interface ICreateProfessor {
     name: string,

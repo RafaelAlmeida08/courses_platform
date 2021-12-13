@@ -1,5 +1,5 @@
 import { getCustomRepository } from "typeorm"
-import { ProfessorRepository } from "../../database/repositories/ProfessorRepository"
+import { ProfessorRepository } from "../../database/repositories/ProfessorsRepository"
 
 class ListProfessorsService {
 
