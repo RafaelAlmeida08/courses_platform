@@ -15,12 +15,12 @@ export class Professor {
     @Column()
     email: string;
         
-    @ManyToOne( () =>  Subject, ( subject : Subject ) => subject.professors)
+    @ManyToOne( () =>  Subject, subject => subject.professors)
     @JoinColumn({name: 'subject'})
     subject: Subject  
     
     @OneToMany( () => Classe, classe => classe.professor )
-    classes: Classe[]
+    classes: Classe[];
 
     @CreateDateColumn({type: 'timestamp'})
     created_at: Timestamp;

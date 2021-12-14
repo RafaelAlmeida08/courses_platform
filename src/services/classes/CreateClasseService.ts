@@ -1,31 +1,37 @@
-import { getCustomRepository } from "typeorm"
+import { getConnection, getCustomRepository, Timestamp } from "typeorm"
 import { Subject } from "../../database/entities/Subject";
 import { Professor } from "../../database/entities/Professor";
 import { ClassesRepository } from "../../database/repositories/ClassesRepository"
 import { Student } from "../../database/entities/Student";
+import { StudentRepository } from "../../database/repositories/StudentsRepository";
+import { Classe } from "../../database/entities/Classe";
+import { ClasseStudents } from "../../database/repositories/ClasseStudents";
 
 interface ICreateClasse{
-    when: string,
+    when: Timestamp ,
     professor: Professor,
     subject: Subject,
-    students: Student[]
+    students: Object[]
 }
 
 class CreateClasseService {
-    async execute({when, professor, subject, students} : ICreateClasse) {
+    async execute({when, professor, subject, students} : ICreateClasse) {       
+        const classeRepo = getCustomRepository(ClassesRepository);
+        const studentRepo = getCustomRepository(StudentRepository);
+        const classeStudentRepo = getCustomRepository(ClasseStudents);
 
-        // console.log(when, professor, subject, students);
+        const classe = classeRepo.create({when, professor, subject});
+        await classeRepo.save(classe);
 
-        const repository = getCustomRepository(ClassesRepository);
+        students.forEach( async (s) => {
+            const stus = classeStudentRepo.create({
+                classeId: classe.id, 
+                studentId: `${s}`
+            });
+            await classeStudentRepo.save(stus)
+        });
 
-        const classe = repository.create({when, professor, subject});
-
-        const newClasse = await repository.save(classe);
-
-
-        console.log(newClasse);
-
-        // return classe;
+        
 
     }
 

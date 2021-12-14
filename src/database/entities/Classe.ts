@@ -1,5 +1,6 @@
 import {Column, CreateDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryColumn, Timestamp, UpdateDateColumn} from 'typeorm';
 import { v4 as uuid} from 'uuid';
+import { ClasseStudent } from './ClasseStudent';
 import { Professor } from './Professor';
 import { Student } from './Student';
 import { Subject } from './Subject'
@@ -19,11 +20,10 @@ export class Classe {
 
     @ManyToOne( () => Subject )
     @JoinColumn({name: 'subject'})
-    subject: Subject     
+    subject: Subject    
 
-    @ManyToMany( () => Student,  student => student.classes)
-    @JoinTable({name: 'students_classes_classes'})
-    students: Student[];
+    @OneToMany( () => ClasseStudent, classeStudent => classeStudent.classe )
+    classeStudents: ClasseStudent   
 
     @CreateDateColumn({type: 'timestamp'})
     created_at: Timestamp;

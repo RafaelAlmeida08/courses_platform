@@ -16,14 +16,14 @@ export class Subject {
     @Column()
     description: string;
     
-    @OneToMany( () => Professor, (professor: Professor) => professor.subject)
+    @OneToMany( () => Professor, professor => professor.subject)
     professors: Professor[];
 
-    @OneToMany( () => Student, (student: Student) => student.subject )
+    @OneToMany( () => Student, student => student.subject )
     students: Student[];
 
     @OneToMany( () => Classe, classe => classe.subject )
-    classes: Classe[]
+    classes: Classe[];
     
     @CreateDateColumn({type: 'timestamp'})
     created_at: Timestamp;

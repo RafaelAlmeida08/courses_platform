@@ -7,8 +7,6 @@ class CreateClasseController {
 
         const { when, professor, subject, students } = request.body;
 
-        console.log(request.body);
-
         const service = new CreateClasseService();
 
         const list = await service.execute({when, professor, subject, students});
