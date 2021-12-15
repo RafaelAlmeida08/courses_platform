@@ -12,17 +12,14 @@ interface ICreateProfessor {
 class CreateProfessorService {
 
     async execute({name, email, subject} : ICreateProfessor): Promise<Professor> {
-
         const repository = getCustomRepository(ProfessorsRepository);
 
         const professor = repository.create({name, email, subject});
-
         await repository.save(professor)
 
         return professor;
 
     }
-
 }
 
 export { CreateProfessorService }

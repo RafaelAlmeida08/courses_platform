@@ -10,7 +10,6 @@ interface ICreateSubject {
 class CreateSubjectService {
 
     async execute({name, description} : ICreateSubject): Promise<Subject> {
-
         const repository = getCustomRepository(SubjectRepository);
 
         const subject = repository.create({name, description});
@@ -20,9 +19,6 @@ class CreateSubjectService {
         return subject;
 
     }
-
-    
-
 }
 
 export { CreateSubjectService }

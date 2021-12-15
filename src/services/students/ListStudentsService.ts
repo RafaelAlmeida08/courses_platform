@@ -12,7 +12,6 @@ class ListStudentsService {
         });
 
         return list;
-
     }
 }
 

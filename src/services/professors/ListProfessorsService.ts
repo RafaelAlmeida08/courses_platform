@@ -13,7 +13,6 @@ class ListProfessorsService {
 
         return list;
     } 
-
 }
 
 export { ListProfessorsService }

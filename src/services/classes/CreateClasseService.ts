@@ -15,7 +15,6 @@ interface ICreateClasse{
 
 class CreateClasseService {
     async execute({when, professor, subject, students} : ICreateClasse): Promise<Classe> {  
-
         const classeRepo = getCustomRepository(ClassesRepository); 
         const classe = classeRepo.create({when, professor, subject});
         await classeRepo.save(classe);
@@ -34,7 +33,6 @@ class CreateClasseService {
 
         return classe;
     }
-
 }
 
 export { CreateClasseService };

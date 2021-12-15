@@ -1,10 +1,8 @@
 import { getCustomRepository } from "typeorm"
 import { Subject } from "../../database/entities/Subject";
-import { SubjectRepository } from "../../database/repositories/SubjectsRepository"
-
+import { SubjectRepository } from "../../database/repositories/SubjectsRepository";
 
 class ListSubjectsService {
-
     async execute(): Promise<Subject[]> {        
         const repository = getCustomRepository(SubjectRepository);
 
@@ -14,7 +12,6 @@ class ListSubjectsService {
 
         return list;
     }
-
 }
 
 export { ListSubjectsService }
