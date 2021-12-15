@@ -1,8 +1,6 @@
 import {  NextFunction, Request, Response } from "express";
 import errorMessage from "../../utils/errorMessage";
 
-
-
 const ensureFields = (request: Request, response: Response, next: NextFunction) => {
     const { when, professor, subject, students } = request.body;
 
