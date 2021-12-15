@@ -15,12 +15,11 @@ export class ClasseStudent {
     @Column()
     studentId: string;
 
-    @ManyToOne( () => Classe, classe => classe.classeStudents )
-    @JoinColumn()
-    classe: Classe
+    @ManyToOne( () => Classe, classe => classe.classeStudents )    
+    classe: Classe;
 
     @ManyToOne( () => Student, student => student.classeStudents )
-    student: Student[];
+    student: Student;
     
 
     constructor() {

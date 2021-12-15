@@ -23,7 +23,7 @@ export class Student {
     updated_at: Timestamp;
 
     @OneToMany( () => ClasseStudent, classeStudent => classeStudent.student )
-    classeStudents: ClasseStudent
+    classeStudents: ClasseStudent[]
 
     @ManyToOne( () => Subject, subject => subject.students )
     @JoinColumn({name: 'subject'})

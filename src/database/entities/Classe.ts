@@ -23,7 +23,7 @@ export class Classe {
     subject: Subject    
 
     @OneToMany( () => ClasseStudent, classeStudent => classeStudent.classe )
-    classeStudents: ClasseStudent   
+    classeStudents: ClasseStudent[]
 
     @CreateDateColumn({type: 'timestamp'})
     created_at: Timestamp;
