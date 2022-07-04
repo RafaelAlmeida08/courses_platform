@@ -12,3 +12,14 @@ After cloning the project you must open your terminal and run the following comm
 Those commands will create the database and migrate the database to the database specified.
 We are using the SQLITE database to make it simple.
 
+## Routes
+You have to create a user first to access the rest of the routes.
+
+Create a new user: http://127.0.0.1:8000/user/new
+
+Login page: http://127.0.0.1:8000/login
+
+Artists page: http://127.0.0.1:8000/artist
+
+Album page: http://127.0.0.1:8000/album
+
